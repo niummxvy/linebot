@@ -63,7 +63,7 @@ def callback():
 
 
 # 處理訊息
-@handler.add(MessageEvent, message=TextMessage)
+@handler.add(MessageEvent, message=TextMessage) # MessageEvent: User message; message: target message
 def handle_message(event):
     msg = event.message.text
     if '最新合作廠商' in msg:

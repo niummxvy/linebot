@@ -2,7 +2,7 @@
 from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
 from linebot.models import *
-
+'''
 #ImagemapSendMessage(組圖訊息)
 def imagemap_message():
     message = ImagemapSendMessage(
@@ -48,7 +48,7 @@ def imagemap_message():
         ]
     )
     return message
-
+'''
 #TemplateSendMessage - ButtonsTemplate (按鈕介面訊息)
 def buttons_message():
     message = TemplateSendMessage(
@@ -79,22 +79,22 @@ def buttons_message():
     )
     return message
 
-#TemplateSendMessage - ConfirmTemplate(確認介面訊息)
+#TemplateSendMessage - ConfirmTemplate(確認介面訊息，二選一)
 def Confirm_Template():
 
     message = TemplateSendMessage(
-        alt_text='是否註冊成為會員？',
+        alt_text='身分確認',
         template=ConfirmTemplate(
-            text="是否註冊成為會員？",
+            text="身分確認",
             actions=[
                 PostbackTemplateAction(
-                    label="馬上註冊",
-                    text="現在、立刻、馬上",
-                    data="會員註冊"
+                    label="配送員",
+                    text="我是配送員",
+                    data="配送員"
                 ),
                 MessageTemplateAction(
-                    label="查詢其他功能",
-                    text="查詢其他功能"
+                    label="一般民眾",
+                    text="我是一般民眾",
                 )
             ]
         )
