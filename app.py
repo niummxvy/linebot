@@ -28,7 +28,7 @@ import time
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
-line_bot_api = LineBotApi('2gippMWwPUvTbfp/m1C7YKnyWe+cvbyIsNfXrspcNUrWXcG7jvQ/0B8tRgeqvjyQbXXFboKfCG62ZWplVqJZ8VsMGqpJTtz1lJ+46ooEErRC+UHK8ozftafDVOO9baSFkQ0Sw4no9Zonu1jVs+c51QdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('1bwyJcBmsJ21JI+kFzF9Lx8BJbOWFHSs7PbLS0+gu2Gh+aU33XQFN4NckqxUPBuDbXXFboKfCG62ZWplVqJZ8VsMGqpJTtz1lJ+46ooEErSJqi/lKZUVD5sBvqeAACvhXIBKZrWGSbOYleTSDNduEwdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
 handler = WebhookHandler('28d7f12a76dce715984d0cc552aaf57d')
 
@@ -67,13 +67,14 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     if '最新合作廠商' in msg:
-        message = imagemap_message()
+        #message = imagemap_message()
         line_bot_api.reply_message(event.reply_token, message)
     elif '最新活動訊息' in msg:
         message = buttons_message()
         line_bot_api.reply_message(event.reply_token, message)
-    elif '註冊會員' in msg:
-        message = Confirm_Template()
+    elif '身分確認' in msg:
+        #message = Confirm_Template()
+        message = Confirm_Identity()
         line_bot_api.reply_message(event.reply_token, message)
     elif '旋轉木馬' in msg:
         message = Carousel_Template()

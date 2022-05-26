@@ -2,6 +2,10 @@
 from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
 from linebot.models import *
+
+def TextSendMessage(text):
+    return text
+
 '''
 #ImagemapSendMessage(組圖訊息)
 def imagemap_message():
@@ -80,8 +84,8 @@ def buttons_message():
     return message
 
 #TemplateSendMessage - ConfirmTemplate(確認介面訊息，二選一)
-def Confirm_Template():
-
+#def Confirm_Template():
+def Confirm_Identity():
     message = TemplateSendMessage(
         alt_text='身分確認',
         template=ConfirmTemplate(
